@@ -15,5 +15,8 @@ benchmarks/graphs
 .env
 .env.development
 
+# MAC OS
+**/*/.DS_Store
+
 # ignore additional files using core.excludesFile
 # https://git-scm.com/docs/gitignore
