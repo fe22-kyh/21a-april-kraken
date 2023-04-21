@@ -11,4 +11,4 @@
 
 ## Övningar
 Under dagen utvecklare vi [kundvisionen](https://github.com/fe22-kyh/arbetsmetodik-examiniation) från arbetsmetodik del 2 med ramverket React. Vi använder då samma [data bibliotek](https://github.com/fe22-kyh/arbetsmetodik-examiniation/blob/main/db.js) som tidigare.
-Då React använder SPA som standard navigering så kommer vi att använda React Routes för all navigering.
+Då React använder SPA som navigering så kommer vi att använda React Routes för all navigering.
