@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 async function register(req, res) {
   const { username, password } = req.body;
 
-  if (username == undefined || password == undefined) return res.sendStatus(400);
+  if (username == undefined || password == undefined) return res.status(400).send("Missing username or password");
   if (username.length <= 4) return res.status(400).send("Username must be longer than 4 characters");
   if (password.length <= 4) return res.status(400).send("Password must be longer than 4 characters");
   if (username.includes(" ") || password.includes(" ")) return res.status(400).send("Password and username must not have whitespaces");
@@ -27,8 +27,8 @@ async function login(req, res) {
   const isAuthenticated = await authService.authenticate(username, password);
 
   if(isAuthenticated) {
-    const token = jwt.sign({username}, process.env.JWT_SECRET);
-    return res.status(200).send(token);
+    const accessToken = jwt.sign({username}, process.env.JWT_SECRET);
+    return res.status(200).send({accessToken});
   } else {
     return res.status(400).send("Bad credentials");
   }
