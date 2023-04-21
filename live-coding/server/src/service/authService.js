@@ -7,8 +7,12 @@ function createUser(username, password) {
   return fetchCollection("userDetails").updateOne(critera, data, { upsert: true });
 }
 
-function authenticate(username, password) {
+async function authenticate(username, password) {
+  const critera = {username};
 
+  const result = await fetchCollection("userDetails").findOne(critera);
+
+  return result != undefined && result.password == password;
 }
 
 export default { createUser, authenticate }
